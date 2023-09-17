@@ -3,24 +3,24 @@ import React, { useState } from "react";
 import { GoogleLogout } from "react-google-login";
 import { useDispatch, useSelector } from "react-redux";
 import {
-    selectSignedIn,
-    selectUserData,
-    setInput,
-    setSignIn,
-    setUserData
-} from "../Fatures/UserSlice";
+  selectSignedIn,
+  selectUserData,
+  setInput,
+  setSignedIn,
+  setUserData,
+} from "../features/userSlice";
 
-import "../styling/Navbar.css";
+import "../styling/navbar.css";
 
 const Navbar = () => {
-  const [inputValue, setInputValue] = useState("tech");
+  const [inputValue, setInputValue] = useState();
   const isSignedIn = useSelector(selectSignedIn);
   const userData = useSelector(selectUserData);
 
   const dispatch = useDispatch();
 
   const logout = (response) => {
-    dispatch(setSignIn(false));
+    dispatch(setSignedIn(false));
     dispatch(setUserData(null));
   };
 
