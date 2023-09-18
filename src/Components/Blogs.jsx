@@ -7,7 +7,7 @@ import "../styling/blogs.css";
 
 const Blogs = () => {
   const searchInput = useSelector(selectUserInput);
-  const blog_url = `https://gnews.io/api/v4/search?q=${searchInput}&token=74da443369bd202a1f3146a275d761fc`;
+  const blog_url = `https://gnews.io/api/v4/search?q=${searchInput}&apikey=582bc213534eadd6801030a64fd11518`;
   const dispatch = useDispatch();
   const [blogs, setBlogs] = useState();
 
@@ -33,7 +33,7 @@ const Blogs = () => {
       <div className="blogs">
         {blogs?.articles?.map((blog) => (
           <a className="blog" target="_blank" href={blog.url}>
-            <img src={blog.image} />
+            <img src={blog.image} alt=""/>
             <div> 
               <h3 className="sourceName">
                 <span>{blog.source.name}</span>
